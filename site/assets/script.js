@@ -26,6 +26,54 @@ if (form) {
         status.textContent = 'Form submissions work after deploying to Netlify.';
       }
 
+  // Scopus metrics (via OpenAlex proxy)
+  const scCit = document.getElementById('scopus-citations');
+  const scH = document.getElementById('scopus-hindex');
+  const scUpd = document.getElementById('scopus-updated');
+  if (scCit && scH) {
+    scCit.textContent = '...';
+    scH.textContent = '...';
+    fetch('/.netlify/functions/scopus')
+      .then(r => r.ok ? r.json() : Promise.reject(new Error('Bad response')))
+      .then(data => {
+        scCit.textContent = data.citations || '—';
+        scH.textContent = data.hindex || '—';
+        if (scUpd) {
+          const d = data.lastUpdated ? new Date(data.lastUpdated) : new Date();
+          scUpd.textContent = `Last updated: ${d.toLocaleString()} • Source: ${data.source || 'Scopus proxy'}`;
+        }
+      })
+      .catch(() => {
+        scCit.textContent = '—';
+        scH.textContent = '—';
+        if (scUpd) scUpd.textContent = '';
+      });
+  }
+
+  // Web of Science metrics (via OpenAlex proxy)
+  const wCit = document.getElementById('wos-citations');
+  const wH = document.getElementById('wos-hindex');
+  const wUpd = document.getElementById('wos-updated');
+  if (wCit && wH) {
+    wCit.textContent = '...';
+    wH.textContent = '...';
+    fetch('/.netlify/functions/wos')
+      .then(r => r.ok ? r.json() : Promise.reject(new Error('Bad response')))
+      .then(data => {
+        wCit.textContent = data.citations || '—';
+        wH.textContent = data.hindex || '—';
+        if (wUpd) {
+          const d = data.lastUpdated ? new Date(data.lastUpdated) : new Date();
+          wUpd.textContent = `Last updated: ${d.toLocaleString()} • Source: ${data.source || 'WoS proxy'}`;
+        }
+      })
+      .catch(() => {
+        wCit.textContent = '—';
+        wH.textContent = '—';
+        if (wUpd) wUpd.textContent = '';
+      });
+  }
+
   // Manual refresh handler (bypass cache)
   if (refreshBtn && citEl && hEl && i10El) {
     refreshBtn.addEventListener('click', () => {

@@ -188,34 +188,84 @@
       </div>
     </section>
 
-    <!-- Google Scholar Metrics -->
-    <section id="scholar-metrics" class="mx-auto max-w-7xl px-6 py-16">
+    
+
+    <!-- Scholarly Metrics -->
+    <section id="metrics" class="mx-auto max-w-7xl px-6 py-16">
       <div class="flex items-center justify-between gap-4">
-        <h2 class="font-serif text-2xl md:text-3xl font-semibold">Google Scholar Metrics</h2>
+        <h2 class="font-serif text-2xl md:text-3xl font-semibold">Scholarly Metrics</h2>
         <div class="flex items-center gap-3">
           <button id="metrics-refresh" class="rounded-md border border-slate-300 px-2.5 py-1.5 text-xs hover:bg-slate-50">Refresh</button>
-          <a href="https://scholar.google.com/citations?user=BzcPJKEAAAAJ&hl=en&authuser=1" target="_blank" rel="noopener" class="text-sm text-blue-600 hover:underline">View on Google Scholar →</a>
         </div>
       </div>
-      <p class="mt-3 max-w-3xl text-slate-700">Key metrics summarizing scholarly impact.</p>
-      <div class="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-5">
-        <div class="rounded-xl border border-slate-200 bg-white p-6 text-center">
-          <div class="text-slate-500 text-sm">Citations</div>
-          <div id="citations-value" class="mt-2 text-3xl font-semibold">—</div>
-          <div id="citations-src" class="mt-1 text-xs text-slate-500"></div>
+      <p class="mt-3 max-w-3xl text-slate-700">Quick access to metrics from major profiles. Google Scholar updates automatically; Scopus and Web of Science open to view live numbers.</p>
+      <div class="mt-8 grid grid-cols-1 lg:grid-cols-3 gap-5">
+        <!-- Google Scholar -->
+        <div class="rounded-xl border border-slate-200 bg-white p-6">
+          <div class="flex items-center justify-between">
+            <div class="font-medium">Google Scholar</div>
+            <a href="https://scholar.google.com/citations?user=BzcPJKEAAAAJ&hl=en&authuser=1" target="_blank" rel="noopener" class="text-sm text-blue-600 hover:underline">Open →</a>
+          </div>
+          <div class="mt-4 grid grid-cols-3 gap-3 text-center">
+            <div>
+              <div class="text-xs text-slate-500">Citations</div>
+              <div id="citations-value" class="mt-1 text-2xl font-semibold">—</div>
+              <div id="citations-src" class="mt-1 text-[11px] text-slate-500"></div>
+            </div>
+            <div>
+              <div class="text-xs text-slate-500">h-index</div>
+              <div id="hindex-value" class="mt-1 text-2xl font-semibold">—</div>
+              <div id="hindex-src" class="mt-1 text-[11px] text-slate-500"></div>
+            </div>
+            <div>
+              <div class="text-xs text-slate-500">i10-index</div>
+              <div id="i10index-value" class="mt-1 text-2xl font-semibold">—</div>
+              <div id="i10index-src" class="mt-1 text-[11px] text-slate-500"></div>
+            </div>
+          </div>
+          <p id="metrics-updated" class="mt-3 text-xs text-slate-500"></p>
         </div>
-        <div class="rounded-xl border border-slate-200 bg-white p-6 text-center">
-          <div class="text-slate-500 text-sm">h-index</div>
-          <div id="hindex-value" class="mt-2 text-3xl font-semibold">—</div>
-          <div id="hindex-src" class="mt-1 text-xs text-slate-500"></div>
+
+        <!-- Scopus -->
+        <div class="rounded-xl border border-slate-200 bg-white p-6">
+          <div class="flex items-center justify-between">
+            <div class="font-medium">Scopus</div>
+            <a href="https://www.scopus.com/authid/detail.uri?authorId=57210440609" target="_blank" rel="noopener" class="text-sm text-blue-600 hover:underline">Open →</a>
+          </div>
+          <div class="mt-3 text-sm text-slate-600">Author ID: 57210440609</div>
+          <div class="mt-4 grid grid-cols-2 gap-3 text-center">
+            <div>
+              <div class="text-xs text-slate-500">Citations</div>
+              <div id="scopus-citations" class="mt-1 text-xl font-semibold">—</div>
+            </div>
+            <div>
+              <div class="text-xs text-slate-500">h-index</div>
+              <div id="scopus-hindex" class="mt-1 text-xl font-semibold">—</div>
+            </div>
+          </div>
+          <p id="scopus-updated" class="mt-3 text-xs text-slate-500"></p>
         </div>
-        <div class="rounded-xl border border-slate-200 bg-white p-6 text-center">
-          <div class="text-slate-500 text-sm">i10-index</div>
-          <div id="i10index-value" class="mt-2 text-3xl font-semibold">—</div>
-          <div id="i10index-src" class="mt-1 text-xs text-slate-500"></div>
+
+        <!-- Web of Science -->
+        <div class="rounded-xl border border-slate-200 bg-white p-6">
+          <div class="flex items-center justify-between">
+            <div class="font-medium">Web of Science</div>
+            <a href="https://www.webofscience.com/wos/author/record/AEK-2733-2022" target="_blank" rel="noopener" class="text-sm text-blue-600 hover:underline">Open →</a>
+          </div>
+          <div class="mt-3 text-sm text-slate-600">ResearcherID: AEK-2733-2022</div>
+          <div class="mt-4 grid grid-cols-2 gap-3 text-center">
+            <div>
+              <div class="text-xs text-slate-500">Citations</div>
+              <div id="wos-citations" class="mt-1 text-xl font-semibold">—</div>
+            </div>
+            <div>
+              <div class="text-xs text-slate-500">h-index</div>
+              <div id="wos-hindex" class="mt-1 text-xl font-semibold">—</div>
+            </div>
+          </div>
+          <p id="wos-updated" class="mt-3 text-xs text-slate-500"></p>
         </div>
       </div>
-      <p id="metrics-updated" class="mt-3 text-xs text-slate-500"></p>
     </section>
 
     <!-- Works -->
