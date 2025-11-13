@@ -1,0 +1,16 @@
+# OS & editor junk
+.DS_Store
+Thumbs.db
+*.log
+
+# Node/npm (not used here, but future-proof)
+node_modules/
+.npm/
+
+# Build artifacts (if added later)
+dist/
+build/
+.cache/
+
+# Netlify
+.netlify/

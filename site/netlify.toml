@@ -1,0 +1,14 @@
+[build]
+  publish = "./"
+  functions = "netlify/functions"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# Ensure HTML5 history fallback is not applied (static site)
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 200
+
+# Forms are auto-detected by Netlify; this file is mainly to define build/publish.

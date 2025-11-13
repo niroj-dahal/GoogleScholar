@@ -1,17 +1,8 @@
 [build]
-  command = "npm run build"
-  publish = "dist"
-  environment = { NODE_VERSION = "16" }
+  base = "site"
+  publish = "site"
+  functions = "site/netlify/functions"
 
-[dev]
-
-  command = "npm run start"
-  publish = "dist"
-  environment = { NODE_VERSION = "16" }
-
-
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 404
+[build.environment]
+  NODE_VERSION = "20"
 
